@@ -44,8 +44,6 @@ Route::get('topFiveMalware','ApiController@topFiveMalware');
 
 Route::get('instituteCount','ApiController@instituteCount');
 
-Route::get('ipDetail/{ipaddress}', 'ApiController@grabberIP');
-
 Route::get('sensorList','SensorController@sensorList');
 
 Route::get('getIPSensor/{sensorId}','SensorController@ipAttackedList');

@@ -135,13 +135,7 @@ class ApiController extends Controller
         return response()->json(['total' => $instituteResp] , 200);
 	}
 
-	public function grabberIP($ipaddress) {
-        $whois = new Whois();
-        $result = $whois->Lookup($ipaddress, false);
-        echo json_encode($result);
-
-    }
-
+	
 	
 
 
