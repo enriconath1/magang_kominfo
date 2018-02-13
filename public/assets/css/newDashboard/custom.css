@@ -1,0 +1,64 @@
+@import url(http://fonts.googleapis.com/css?family=Jura:300,400,600,700);
+/*@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Lato:400,700,900|Ubuntu:400,500,700);*/
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Lato:100,300,400,700|Droid+Sans+Mono);
+
+/*body {
+    padding-bottom: 0;
+    min-height: 100%;
+    font-family: 'Lato';
+    font-size: 13px;
+    color: #393939;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Lato';
+}
+
+.h3{
+	color: white;
+}
+
+.pie {
+	overflow: hidden;
+	height: 300px;
+}
+
+.select-option-modal {
+	font-size: 16px;
+	color: black;
+}*/
+/*
+#new-chart .ui-selected {
+    background: red;
+    color: white;
+    font-weight: bold;
+}
+ 
+#new-chart {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ 
+#new-chart li {
+    float: left;
+    margin: 2px;
+    padding: 2px;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+}*/
+
+.dashed-placeholder {
+	border: 2px dashed #999;
+	width: 50%;
+    height:360px;
+    float: left;
+	/*background-color:lightblue;*/
+    padding:10px;
+}
+
+.table-font-black td {
+    color:black
+}

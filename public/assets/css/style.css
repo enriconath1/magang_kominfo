@@ -1,0 +1,87 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 29, 2014, 11:30:01 AM
+    Author     : user
+*/
+
+.highlighted-tr {
+    background-color: #d9edf7;
+    /*color: #3a87ad;*/
+    color: white;
+}
+
+.username-navbar {
+    color: white;
+}
+
+.add-sensor-wizard-box {
+    min-height: 300px !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+}
+.button-next, .button-previous, .button-first, .button-last {
+    color: black;
+}
+
+.login-title{
+    color: black;
+}
+
+.ip-table-td a, .ports-table-td a, .malware-table-td a, .sensor-table-td a, .user-table-td a {
+    color: white;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #CECECE;
+}
+
+.right-aligned {
+    text-align: right;
+}
+
+.table-box {
+    width: 80%;
+    margin: auto;
+}
+
+.generate-pdf-csv {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+}
+
+.tableInDiv {
+    margin-bottom: 0px;
+}
+
+.tableOuter {
+    table-layout: fixed;
+}
+
+#ipDetail {
+    color: black;
+}
+
+.widgetButton {
+    margin: 10px 0 20px 37%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
