@@ -27,6 +27,18 @@ class SensorController extends Controller
         return response()->json(['total' => $sensorlist] , 200);
 	}
 
+
+    public function sensorType()
+
+    {
+        $sensor = $this->host . 'sensors/sensorType/' . $this->apiKey;
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET',$sensor);
+        $sensorlist = $res->getBody();
+        $sensorlist = json_decode($sensorlist);
+        return response()->json(['total' => $sensorlist] , 200);
+    }
+
 	public function ipAttackedList($sensorID)
 
 	{
@@ -72,5 +84,38 @@ class SensorController extends Controller
         $picDetail = json_decode($picDetail);
         return response()->json(['total' => $picDetail] , 200);
 	}
+
+
+    public function addSensorInstance($sensorName, $sensorIP, $user1Id, $user2Id, $sensorType){
+        $url = $this->host . "users/addSensor/" . Session::get('sessionKey') . "/" . $this->apiKey;
+        $client = new \GuzzleHttp\Client;
+        $client->setDefaultOption('verify', false);
+        
+        $req = $client->createRequest('POST', $url);
+        $req->setHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        $postBody = $req->getBody();
+        $postBody->setField('sensor_name', $sensorName);
+        $postBody->setField('sensor_ip', $sensorIP);
+        $postBody->setField('user_1_id', $user1Id);
+        $postBody->setField('user_2_id', $user2Id);
+        $postBody->setField('sensor_type', $sensorType);
+        
+        try {
+            $resp = $client->send($req);
+                if ($resp) {
+                    Session::flash('success', 'Successfully added new sensor!');
+                    return Redirect::to('sensorList');
+                }
+        }
+        
+        catch (\GuzzleHttp\Exception\ClientException $e){
+            // if($e->getResponse()->getStatusCode() == 400){
+                // Session::flash('failure', 'Wrong Username or Password');
+            // }
+            // return Redirect::to('login');
+        }
+    }
+    
 
 }

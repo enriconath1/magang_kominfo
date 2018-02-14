@@ -160,7 +160,16 @@ class ApiController extends Controller
     }
 
 	
-	
+	public function attackerList()
+
+    {
+        $attacker = $this->host . "/attackerList/attackerIpCount/" . 0 . "/" . 250 . "/" . $this->apiKey;
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET',$attacker);
+        $uniqueattack = $res->getBody();
+        $uniqueattack = json_decode($uniqueattack);
+        return response()->json(['total' => $uniqueattack] , 200);
+    }
 
 
 }

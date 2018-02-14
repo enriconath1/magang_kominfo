@@ -42,9 +42,17 @@ Route::get('topFivePort','ApiController@topFivePort');
 
 Route::get('topFiveMalware','ApiController@topFiveMalware');
 
-Route::get('instituteCount','ApiController@instituteCount');
+Route::get('attackerList','ApiController@attackerList');
+
+Route::get('instituteCount','InstitutionController@instituteCount');
+
+Route::post('storeInstitute', 'InstitutionController@storeInstitute');
 
 Route::get('sensorList','SensorController@sensorList');
+
+Route::get('sensorType','SensorController@sensorType');
+
+Route::get('userList','UserController@userList');
 
 Route::get('getIPSensor/{sensorId}','SensorController@ipAttackedList');
 
@@ -57,3 +65,5 @@ Route::get('getPICSensor/{sensorID}', 'SensorController@picSensorDetail');
 Route::get('loadWorldMap', 'ApiController@loadWorldMap');
 
 Route::get('loadIndonesiaMap', 'ApiController@loadIndonesiaMap');
+
+Route::post('storeUser', 'UserController@storeUser');
