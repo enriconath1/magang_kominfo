@@ -53,3 +53,7 @@ Route::get('getPortSensor/{sensorId}','SensorController@PortAttackedList');
 Route::get('getMalwareSensor/{sensorIP}', 'SensorController@malwareAttackedList');
 
 Route::get('getPICSensor/{sensorID}', 'SensorController@picSensorDetail');
+
+Route::get('loadWorldMap', 'ApiController@loadWorldMap');
+
+Route::get('loadIndonesiaMap', 'ApiController@loadIndonesiaMap');

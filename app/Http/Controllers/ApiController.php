@@ -135,6 +135,30 @@ class ApiController extends Controller
         return response()->json(['total' => $instituteResp] , 200);
 	}
 
+
+    public function loadWorldMap()
+
+    {
+        $WorldStat = $this->host . "connections/countryCounts/" . 0 . "/" . 250 . "/" . $this->apiKey;
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET',$WorldStat);
+        $WorldStatResp = $res->getBody();
+        $WorldStatResp = json_decode($WorldStatResp);
+        return response()->json(['total' => $WorldStatResp] , 200);
+    }
+
+
+    public function loadIndonesiaMap()
+
+    {
+        $provinceStat = $this->host . 'province/getProvinceAttackerStats/' . $this->apiKey;
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET',$provinceStat);
+        $provinceStatResp = $res->getBody();
+        $provinceStatResp = json_decode($provinceStatResp);
+        return response()->json(['total' => $provinceStatResp] , 200);
+    }
+
 	
 	
 

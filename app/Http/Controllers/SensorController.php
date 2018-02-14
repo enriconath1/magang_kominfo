@@ -70,7 +70,7 @@ class SensorController extends Controller
         $res = $client->request('GET',$picSensor);
         $picDetail = $res->getBody();
         $picDetail = json_decode($picDetail);
-        return response()->json(['total' => $picDetail] , 200)->orderBy('instituteId','DESC');
+        return response()->json(['total' => $picDetail] , 200);
 	}
 
 }
