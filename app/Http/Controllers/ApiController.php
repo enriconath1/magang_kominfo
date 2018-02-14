@@ -19,7 +19,16 @@ class ApiController extends Controller
 
     // 	return view('pages.dashboard',compact('totalAttackResp'));
     // }
-
+    public function index()
+    {
+        $attacker = $this->host . "/attackerList/attackerIpCount/" . 0 . "/" . 50 . "/" . $this->apiKey;
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET',$attacker);
+        $uniqueattack = $res->getBody();
+        $uniqueattack = json_decode($uniqueattack);
+        //return response()->json(['total' => $uniqueattack] , 200);
+        return view('pages.ipList',compact('uniqueattack'));
+    }
 
     public function getTotalAttack()
 
@@ -168,7 +177,55 @@ class ApiController extends Controller
         $res = $client->request('GET',$attacker);
         $uniqueattack = $res->getBody();
         $uniqueattack = json_decode($uniqueattack);
-        return response()->json(['total' => $uniqueattack] , 200);
+        //return response()->json(['total' => $uniqueattack] , 200);
+        return view('pages.ipList',compact('uniqueattack'));
+    }
+
+    public function portAttackList($ipaddress)
+
+    {
+        $attackport = $this->host . "/attackerList/attackedPortByIpCount/" . $ipaddress . "/" . $this->apiKey;
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET',$attackport);
+        $attackportResp = $res->getBody();
+        $attackportResp = json_decode($attackportResp);
+        return response()->json(['total' => $attackportResp] , 200);
+        //return view('pages.ipList',compact('uniqueattack'));
+    }
+
+
+    public function malwareAttackIpList($ipaddress, $detailOffset, $detailLimit)
+
+    {
+        $malwareList = $this->host . "/attackerList/malwareByIp/" . $ipaddress . "/" . $detailOffset . "/" . $detailLimit . "/" . $this->apiKey;
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET',$malwareList);
+        $malwareListResp = $res->getBody();
+        $malwareListResp = json_decode($malwareListResp);
+        return response()->json(['total' => $malwareListResp] , 200);
+        //return view('pages.ipList',compact('uniqueattack'));
+    }
+
+
+    public function searchIP($ipAddress, $offset, $limit)
+
+    {
+        $searchIP = $this->host . "/attackerList/ip/" . $ipAddress . "/" . $offset . "/" . $limit . "/" . $this->apiKey;
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET',$searchIP);
+        $searchIPResp = $res->getBody();
+        $searchIPResp = json_decode($searchIPResp);
+        return response()->json(['total' => $searchIPResp] , 200);
+        //return view('pages.ipList',compact('uniqueattack'));
+    }
+
+
+
+    public function grabberIP($ipaddress) {
+        $whois = new Whois();
+        $result = $whois->Lookup($ipaddress, false);
+        echo json_encode($result);
+
     }
 
 

@@ -2,6 +2,7 @@
     <head>
        @include('partials.head')
        @yield('page-title')
+       @yield('scroll')
     </head>
     <body style class="skin-black">
         @include('partials.navbar')

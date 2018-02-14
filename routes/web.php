@@ -23,7 +23,16 @@ Route::get('/dashboard',function(){
 	return view('pages.dashboard');
 });
 
+Route::get('/iplist',function(){
+	return view('pages.ipList');
+});
+
+// API CONTROLLER
+
 Route::resource('api','ApiController');
+
+Route::resource('iplist','ApiController');
+
 Route::get('getTotalAttack','ApiController@getTotalAttack');
 
 Route::get('getTotalCountry','ApiController@getTotalCountry');
@@ -32,7 +41,7 @@ Route::get('getTotalMalwareAttack','ApiController@getTotalMalware');
 
 Route::get('getUniqueAttack','ApiController@getUniqueAttack');
 
-Route::get('countryList','ApiController@countryList');
+Route::get('getCountry','ApiController@countryList');
 
 Route::get('topCountry','ApiController@topCountry');
 
@@ -44,15 +53,31 @@ Route::get('topFiveMalware','ApiController@topFiveMalware');
 
 Route::get('attackerList','ApiController@attackerList');
 
+Route::get('loadWorldMap', 'ApiController@loadWorldMap');
+
+Route::get('loadIndonesiaMap', 'ApiController@loadIndonesiaMap');
+
+Route::get('portAttackList/{ipaddress}', 'ApiController@portAttackList');
+
+Route::get('getMalwareAttack/{ipaddress}/{detailOffset}/{detailLimit}', 'ApiController@malwareAttackIpList');
+
+Route::get('searchIP/{ipAddress}/{offset}/{limit}', 'ApiController@searchIP');
+
+Route::get('ipDetail/{ipaddress}', 'ApiController@grabberIP');
+
+
+//INSTITUTIONCONTROLLER
+
 Route::get('instituteCount','InstitutionController@instituteCount');
 
 Route::post('storeInstitute', 'InstitutionController@storeInstitute');
 
+
+//SENSORCONTROLLER
+
 Route::get('sensorList','SensorController@sensorList');
 
 Route::get('sensorType','SensorController@sensorType');
-
-Route::get('userList','UserController@userList');
 
 Route::get('getIPSensor/{sensorId}','SensorController@ipAttackedList');
 
@@ -62,8 +87,11 @@ Route::get('getMalwareSensor/{sensorIP}', 'SensorController@malwareAttackedList'
 
 Route::get('getPICSensor/{sensorID}', 'SensorController@picSensorDetail');
 
-Route::get('loadWorldMap', 'ApiController@loadWorldMap');
+//USERCONTROLLER
 
-Route::get('loadIndonesiaMap', 'ApiController@loadIndonesiaMap');
+Route::get('userList','UserController@userList');
 
 Route::post('storeUser', 'UserController@storeUser');
+
+
+

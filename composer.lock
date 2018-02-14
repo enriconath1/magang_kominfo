@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f774dc1a42ccdf735d65ea2c8b9fb33",
+    "content-hash": "a878c7217cacdd97e468af47c1856f8b",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1062,6 +1062,55 @@
             "time": "2017-06-19T01:22:40+00:00"
         },
         {
+            "name": "mso/idna-convert",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phlylabs/idna-convert.git",
+                "reference": "a6dfb6f87611e3a89d2eec4924a0f51db755c573"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phlylabs/idna-convert/zipball/a6dfb6f87611e3a89d2eec4924a0f51db755c573",
+                "reference": "a6dfb6f87611e3a89d2eec4924a0f51db755c573",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mso\\IdnaConvert\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1+"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Sommerfeld",
+                    "email": "mso@phlylabs.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A library for encoding and decoding internationalized domain names",
+            "homepage": "http://idnaconv.net/",
+            "keywords": [
+                "idn",
+                "idna",
+                "php"
+            ],
+            "time": "2016-06-19T18:08:43+00:00"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "1.22.1",
             "source": {
@@ -1215,30 +1264,33 @@
         },
         {
             "name": "phpwhois/phpwhois",
-            "version": "v4.2.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpWhois/phpWhois.git",
-                "reference": "45f46482d8197ec18f5fff47d2b51d422af9c7a4"
+                "reference": "32a5e85cc833f9b886c86123f7be5ada3d326272"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpWhois/phpWhois/zipball/45f46482d8197ec18f5fff47d2b51d422af9c7a4",
-                "reference": "45f46482d8197ec18f5fff47d2b51d422af9c7a4",
+                "url": "https://api.github.com/repos/phpWhois/phpWhois/zipball/32a5e85cc833f9b886c86123f7be5ada3d326272",
+                "reference": "32a5e85cc833f9b886c86123f7be5ada3d326272",
                 "shasum": ""
             },
             "require": {
+                "mso/idna-convert": "*",
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.4.1"
             },
             "suggest": {
                 "lib-openssl": "*"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "src/whois.main.php",
-                    "src/whois.utils.php"
-                ]
+                "psr-4": {
+                    "phpWhois\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1269,7 +1321,7 @@
                 "phpwhois",
                 "whois"
             ],
-            "time": "2014-12-30T17:09:58+00:00"
+            "time": "2015-07-10 18:53:02"
         },
         {
             "name": "psr/container",
@@ -4362,7 +4414,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "phpwhois/phpwhois": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
