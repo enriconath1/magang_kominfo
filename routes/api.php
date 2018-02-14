@@ -41,7 +41,7 @@ Route::get('sensorList','SensorController@sensorList');
 
 Route::get('getIPSensor/{sensorId}','SensorController@ipAttackedList');
 
-//Route::get('getPortSensor/{sensorId}','SensorController@PortAttackedList');
+Route::get('getPortSensor/{sensorId}','SensorController@PortAttackedList');
 
 Route::get('getMalwareSensor/{sensorIP}', 'SensorController@malwareAttackedList');
 
